@@ -38,9 +38,9 @@ end
 get '/plans/:id/edit' do
   binding.pry
   if logged_in?
-   @plan = Plan.find_by_id(params[:user_id])
+   @plan = Plan.find_by_id(params[:id])
     if @plan.user_id == session[:user_id]
-       erb : 'plan/edit'
+       erb :'plans/edit'
     else
       redirect to '/plans'
     end
@@ -57,7 +57,7 @@ patch '/plans/:id' do
     @plan = Plan.find_by_id(params[:id])
     @plan.name = params[:name]
     @plan.save
-    redirect to '/plans/#{@plan.id}'
+    redirect to "/plans/#{@plan.id}"
   end
 end
 

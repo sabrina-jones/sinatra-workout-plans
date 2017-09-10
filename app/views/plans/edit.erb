@@ -1,0 +1,7 @@
+<h3>Edit Workout Plan: <%= @plan.name %> </h3>
+
+<form action= "/plans/<%=@plan.id%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <input type="text" name="name" value="<%= @plan.name %>">
+  <input type="submit" value="submit">
+</form>
