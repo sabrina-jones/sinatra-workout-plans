@@ -6,4 +6,10 @@ class PlansController < ApplicationController
     erb :'plans/index'
   end
 
+#create new plan
+get '/plans/create_plan' do
+  erb :'plans/create_plan'
+end
+
+
 end
