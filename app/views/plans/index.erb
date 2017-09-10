@@ -1,0 +1,9 @@
+<h2><%= current_user.username%></h2>
+
+<h3>Your Plans:</h3>
+
+<% @plans.each do |plan| %>
+  <ul>
+    <li><h4><a href ="/plans/<%=plan.id%>"><%= plan.name %></a></h4></li>
+  </ul>
+<% end %>
