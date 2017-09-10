@@ -1,7 +1,7 @@
 require 'pry'
 class PlansController < ApplicationController
 
-# lists index
+#  index
   get '/plans' do
     @plans = Plan.all
     erb :'plans/index'
@@ -36,7 +36,7 @@ end
 
 #edit plan
 get '/plans/:id/edit' do
-  binding.pry
+  #binding.pry
   if logged_in?
    @plan = Plan.find_by_id(params[:id])
     if @plan.user_id == session[:user_id]
@@ -50,7 +50,7 @@ get '/plans/:id/edit' do
 end
 
 patch '/plans/:id' do
-  binding.pry
+  #binding.pry
   if params[:name].empty?
      redirect to '/plans/#{params[:id]}/edit'
   else
@@ -72,9 +72,5 @@ delete '/plans/:id' do
   @plan.destroy
   redirect '/plans'
 end
-
-
-
-
 
 end
