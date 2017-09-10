@@ -10,7 +10,10 @@ get '/workouts' do
  get '/workouts/new' do
   @plans = Plan.all
   erb :'workouts/new'
-end
+ end
+
+
+
 
 
 end
