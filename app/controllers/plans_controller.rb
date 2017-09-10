@@ -35,7 +35,8 @@ get '/plans/:id' do
 end
 
 #edit plan
-get '/plans/:id/edit'
+get '/plans/:id/edit' do
+  binding.pry
   if logged_in?
    @plan = Plan.find_by_id(params[:user_id])
     if @plan.user_id == session[:user_id]
@@ -47,5 +48,19 @@ get '/plans/:id/edit'
     redirect to '/login'
   end
 end
+
+patch '/plans/:id' do
+  binding.pry
+  if params[:name].empty?
+     redirect to '/plans/#{params[:id]}/edit'
+  else
+    @plan = Plan.find_by_id(params[:id])
+    @plan.name = params[:name]
+    @plan.save
+    redirect to '/plans/#{@plan.id}'
+  end
+end
+
+
 
 end
