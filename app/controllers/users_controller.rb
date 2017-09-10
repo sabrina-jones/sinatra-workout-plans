@@ -38,5 +38,20 @@ post '/login' do
   end
 end
 
+#show
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :'users/show'
+end
+
+#logout
+get '/logout' do
+  if logged_in?
+    session.clear
+    redirect to '/login'
+  else
+    redirect '/'
+  end
+end
 
 end
