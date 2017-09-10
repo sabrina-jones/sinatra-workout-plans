@@ -34,4 +34,18 @@ get '/plans/:id' do
   end
 end
 
+#edit plan
+get '/plans/:id/edit'
+  if logged_in?
+   @plan = Plan.find_by_id(params[:user_id])
+    if @plan.user_id == session[:user_id]
+       erb : 'plan/edit'
+    else
+      redirect to '/plans'
+    end
+  else
+    redirect to '/login'
+  end
+end
+
 end
