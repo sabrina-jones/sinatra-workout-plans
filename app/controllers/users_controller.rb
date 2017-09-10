@@ -19,6 +19,24 @@ post '/signup' do
   end
 end
 
+#login
+get '/login' do
+  if !session[:user_id]
+    erb :'users/login'
+  else
+    redirect '/plans'
+  end
+end
+
+post '/login' do
+  user = User.find_by(username: params[:username])
+  if user && user.authenticate(params[:password])
+    session[:user_id] = user.id
+    redirect '/plans'
+  else
+    redirect '/signup'
+  end
+end
 
 
 end
