@@ -61,6 +61,20 @@ patch '/plans/:id' do
   end
 end
 
+#delete plans
+get '/plans/:id' do
+  @plan = Plan.find_by_id(params[:id])
+  erb :'plans/edit'
+end
+
+delete '/plans/:id' do
+  @plan = Plan.find_by_id(params[:id])
+  @plan.destroy
+  redirect '/plans'
+end
+
+
+
 
 
 end
