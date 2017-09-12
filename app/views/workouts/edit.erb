@@ -6,3 +6,10 @@
 
   <input type="submit" value="change">
 </form>
+
+<br>
+
+<form method="post" action="/workouts/<%=@workout.id%>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+<form>

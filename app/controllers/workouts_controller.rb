@@ -50,10 +50,17 @@ post "/workouts/:id" do
   redirect "/workouts/#{@workout.id}"
 end
 
+# delete workouts
+  get '/workouts/:id' do
+    @workout = Workout.find_by_id(params[:id])
+    erb :'/workouts/edit'
+  end
 
-
-
-
+  delete '/workouts/:id' do
+    @workout = Workout.find_by_id(params[:id])
+    @workout.destroy
+    redirect '/workouts'
+  end
 
 
 
