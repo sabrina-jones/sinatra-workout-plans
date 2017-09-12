@@ -4,19 +4,21 @@ class WorkoutsController < ApplicationController
 
 #index
 get '/workouts' do
-   @workouts = Workout.find_by_id(params[:id])
-   erb :'users/show'
+  binding.pry
+  @workouts = Workout.all
+   #@workouts = Workout.find_by_id(params[:id])
+   erb :'workouts/index'
  end
 
  #create new workout
  get '/workouts/new' do
-   #binding.pry
+   binding.pry
   @plans = Plan.all
   erb :'workouts/new'
  end
 
  post '/workouts' do
- #  binding.pry
+  binding.pry
    if params[:name] == ''
      redirect to 'workouts/new'
    else
@@ -32,6 +34,7 @@ get '/workouts' do
 
  #show workouts
  get '/workouts/:id' do
+   binding.pry
     @workout = Workout.find_by_id(params[:id])
     erb :'workouts/show'
   end
