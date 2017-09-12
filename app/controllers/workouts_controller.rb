@@ -44,6 +44,11 @@ get "/workouts/:id/edit" do
 end
 
 
+post "/workouts/:id" do
+  @workout = Workout.find(params[:id])
+  @workout.update(params.select{|i|i=="name"})
+  redirect "/workouts/#{@workout.id}"
+end
 
 
 

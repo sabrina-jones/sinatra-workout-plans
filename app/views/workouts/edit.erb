@@ -1,1 +1,8 @@
 <h3>Change Workout: <%= @workout.name %></h3>
+
+<form action="/workouts/<%=@workout.id %>" method="POST">
+  <label> Workout: </label>
+  <input type="text" name="name" value="<%=@workout.name %>"> </br>
+
+  <input type="submit" value="change">
+</form>
