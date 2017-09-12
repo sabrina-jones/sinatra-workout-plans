@@ -36,6 +36,15 @@ get '/workouts' do
     erb :'workouts/show'
   end
 
+#edit workouts
+get "/workouts/:id/edit" do
+  @workout = Workout.find(params[:id])
+  @plans = Plan.all
+  erb :'workouts/edit'
+end
+
+
+
 
 
 
