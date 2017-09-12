@@ -10,22 +10,23 @@ get '/workouts' do
 
  #create new workout
  get '/workouts/new' do
-   binding.pry
+   #binding.pry
   @plans = Plan.all
   erb :'workouts/new'
  end
 
  post '/workouts' do
-  binding.pry
-   if params[:name] == ''
-     redirect to 'workouts/new'
-   else
-     user = User.find_by_id(session[:user_id])
-    # @workout = Workout.create(name: params[:name], plan_id: params[:plan_id])
-     Workout.create(params)
-     redirect to "/workouts/#{@workout.id}"
-   end
+   Workout.create(params)
+   redirect "/workouts"
  end
+
+ #show workouts
+ get '/workouts/:id' do
+    @workout = Workout.find_by_id(params[:id])
+    erb :'workouts/show'
+  end
+
+
 
 
 
