@@ -19,7 +19,8 @@ post '/plans' do
   else
     user = User.find_by_id(session[:user_id])
     @plan = Plan.create(name: params[:name], user_id: user.id)
-    redirect to "/plans/#{@plan.id}"
+    #redirect to "/plans/#{@plan.id}"
+    redirect to "/plans"
   end
 end
 
@@ -57,7 +58,8 @@ patch '/plans/:id' do
     @plan = Plan.find_by_id(params[:id])
     @plan.name = params[:name]
     @plan.save
-    redirect to "/plans/#{@plan.id}"
+    #redirect to "/plans/#{@plan.id}"
+    redirect to "/plans"
   end
 end
 

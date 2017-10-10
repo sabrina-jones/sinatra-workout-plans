@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
 
 #index
 get '/workouts' do
-  binding.pry
+#  binding.pry
   @workouts = Workout.all
    #@workouts = Workout.find_by_id(params[:id])
    erb :'workouts/index'
@@ -12,19 +12,19 @@ get '/workouts' do
 
  #create new workout
  get '/workouts/new' do
-   binding.pry
+   #binding.pry
   @plans = Plan.all
   erb :'workouts/new'
  end
 
  post '/workouts' do
-  binding.pry
+  #binding.pry
    if params[:name] == ''
      redirect to 'workouts/new'
    else
      user = User.find_by_id(session[:user_id])
      @workout = Workout.create(params)
-     redirect to "/workouts/#{@workout.id}"
+     redirect to "/plans"
    end
  end
  #post '/workouts' do
@@ -34,10 +34,15 @@ get '/workouts' do
 
  #show workouts
  get '/workouts/:id' do
-   binding.pry
+   #binding.pry
     @workout = Workout.find_by_id(params[:id])
     erb :'workouts/show'
   end
+
+  post '/workouts' do
+   Workout.create(params)
+   redirect "/workouts"
+ end
 
 #edit workouts
 get "/workouts/:id/edit" do
@@ -50,7 +55,8 @@ end
 post "/workouts/:id" do
   @workout = Workout.find(params[:id])
   @workout.update(params.select{|i|i=="name"})
-  redirect "/workouts/#{@workout.id}"
+  #redirect "/workouts/#{@workout.id}"
+  redirect "/plans"
 end
 
 # delete workouts
