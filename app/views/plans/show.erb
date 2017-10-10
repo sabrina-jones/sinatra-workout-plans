@@ -1,5 +1,12 @@
 <h3><%= @plan.name %></h3>
 
+<h4>Workouts</h4>
+  <% @plan.workouts.each do |workout| %>
+    <ul>
+      <li><h4><a href="/workouts/<%=workout.id%>"><%= workout.name %></a></h4></li>
+    </ul>
+  <% end%>
+
   <a href="/plans/create_plan">Create Plan</a>
   <br>
   <a href="/plans/<%=@plan.id%>/edit">Edit Plan</a>
