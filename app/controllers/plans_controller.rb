@@ -59,7 +59,8 @@ patch '/plans/:id' do
     @plan.name = params[:name]
     @plan.save
     #redirect to "/plans/#{@plan.id}"
-    redirect to "/plans"
+    #redirect to "/plans"
+     erb :'users/show'
   end
 end
 

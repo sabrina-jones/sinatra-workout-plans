@@ -3,11 +3,11 @@
 <form action="/workouts/<%=@workout.id %>" method="POST">
   <label> Workout: </label>
   <input type="text" name="name" value="<%=@workout.name %>"> </br>
-
+  <br>
+  <br>
   <input type="submit" value="change">
 </form>
 
-<br>
 
 <form method="post" action="/workouts/<%=@workout.id%>">
   <input id="hidden" type="hidden" name="_method" value="delete">

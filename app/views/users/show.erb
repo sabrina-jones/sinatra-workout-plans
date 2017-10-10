@@ -1,1 +1,11 @@
-<h3> <%= current_user.username %> workout plans</h3>
+<h3> <%= current_user.username %>'s Workout Plans</h3>
+
+<% current_user.plans.each do |plan| %>
+  <ul>
+    <li><h4><a href="/plans/<%=plan.id%>"><%= plan.name %></a></h4></li>
+    <a href="/plans/<%=plan.id%>/edit">Change Plan Name</a>
+    <br>
+    <a href="/workouts/new">Add Workout</a>
+  </ul>
+
+<% end %>

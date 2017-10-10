@@ -7,7 +7,7 @@ get '/workouts' do
 #  binding.pry
   @workouts = Workout.all
    #@workouts = Workout.find_by_id(params[:id])
-   erb :'workouts/index'
+   erb :'users/show'
  end
 
  #create new workout
@@ -24,7 +24,7 @@ get '/workouts' do
    else
      user = User.find_by_id(session[:user_id])
      @workout = Workout.create(params)
-     redirect to "/plans"
+     redirect to "/workouts/#{@workout.id}"
    end
  end
  #post '/workouts' do
@@ -55,8 +55,8 @@ end
 post "/workouts/:id" do
   @workout = Workout.find(params[:id])
   @workout.update(params.select{|i|i=="name"})
-  #redirect "/workouts/#{@workout.id}"
-  redirect "/plans"
+  redirect "/workouts/#{@workout.id}"
+  #redirect "/plans/#{@plan.id}"
 end
 
 # delete workouts
