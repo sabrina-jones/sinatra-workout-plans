@@ -5,6 +5,7 @@ class PlansController < ApplicationController
   get '/plans' do
     @plans = Plan.all
     erb :'plans/index'
+    #erb :'users/show'
   end
 
 #create new plan
