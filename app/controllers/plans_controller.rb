@@ -9,14 +9,14 @@ class PlansController < ApplicationController
   end
 
 #create new plan
-get '/plans/create_plan' do
-  erb :'plans/create_plan'
+get '/plans/new' do
+  erb :'plans/new'
 end
 
 post '/plans' do
 #  binding.pry
   if params[:name] == ''
-    redirect to 'plans/create_plan'
+    redirect to 'plans/new'
   else
     user = User.find_by_id(session[:user_id])
     @plan = Plan.create(name: params[:name], user_id: user.id)
