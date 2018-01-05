@@ -7,6 +7,7 @@ get '/workouts' do
 #  binding.pry
   @workouts = Workout.all
    #@workouts = Workout.find_by_id(params[:id])
+   #erb :'workouts/index'
    erb :'users/show'
  end
 

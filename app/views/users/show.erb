@@ -3,9 +3,9 @@
 <% current_user.plans.each do |plan| %>
   <ul>
     <li><h4><a href="/plans/<%=plan.id%>"><%= plan.name %></a></h4></li>
-    <a href="/plans/<%=plan.id%>/edit">Change Plan Name</a>
-    <br>
-    <a href="/workouts/new">Add Workout</a>
   </ul>
-
 <% end %>
+
+<a href="/plans/new">Create Plan</a>
+<br>
+<a href="/logout">Logout</a>

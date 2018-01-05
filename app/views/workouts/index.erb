@@ -1,7 +1,14 @@
-<h3>All of <%= current_user.username%>'s Workouts:</h3>
+<h3><%= current_user.username%>'s Workout List:</h3>
 
 <% current_user.workouts.each do |workout| %>
-  <%= workout.name %><br>
-  <a href="/workouts/<%=workout.id%>/edit">Edit Workout</a>
+<ul>
+  <li><%= workout.name %></li>
+</ul>
   <br>
 <% end %>
+
+<a href="/workouts/new">Add Workout To Plan </a> | <a href="/logout">Logout</a>
+
+<a href="/plans">Home</a>
+<br>
+<a href="/logout">Logout</a>
