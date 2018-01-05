@@ -8,9 +8,6 @@
 <% @plans.each do |plan| %>
   <ul>
     <li><h3><a href ="/plans/<%=plan.id%>"><%= plan.name %></a></h3></li>
-    <a href="/plans/<%=plan.id%>/edit">Edit Plan</a>
-    <br>
-    <a href="/workouts/new">Add Workouts</a>
   </ul>
 <% end %>
 <br>
