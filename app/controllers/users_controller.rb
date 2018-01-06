@@ -10,8 +10,9 @@ get '/signup' do
 end
 
 post '/signup' do
-  if params[:user_name] == "" || params[:password] == ""
-    redirect to '/signup'
+ if params[:user_name] == "" || params[:password] == ""
+    #redirect to '/signup'
+   erb :'users/new'
   else
     @user = User.create(username: params[:username], password: params[:password])
     session[:user_id] = @user.id
