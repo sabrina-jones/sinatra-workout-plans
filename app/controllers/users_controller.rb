@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 #sign up
 get '/signup' do
   if !session[:user_id]
-    erb :'users/create_acct'
+    erb :'users/new'
   else
     redirect to '/workouts'
   end
