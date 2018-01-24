@@ -14,10 +14,12 @@ post '/signup' do
     #redirect to '/signup'
    erb :'users/new'
   else
-    @user = User.create(username: params[:username], password: params[:password])
+  #  @user = User.create(username: params[:username], password: params[:password])
+    @user = User.create(params[:user])
     session[:user_id] = @user.id
     redirect '/plans'
   end
+  # params = {:user => {:username => test123, :password => 12345}}
 end
 
 #login
@@ -54,5 +56,6 @@ get '/logout' do
     redirect '/'
   end
 end
+
 
 end

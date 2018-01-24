@@ -56,13 +56,17 @@ patch '/plans/:id' do
   if params[:name].empty?
      redirect to '/plans/#{params[:id]}/edit'
   else
-    @plan = Plan.find_by_id(params[:id])
-    @plan.name = params[:name]
-    @plan.save
+  if @plan.user_id == session[:user_id]
+     @plan = Plan.find_by_id(params[:id])
+     @plan.name = params[:name]
+     @plan.save
     #redirect to "/plans/#{@plan.id}"
     #redirect to "/plans"
-     erb :'users/show'
+    # erb :'users/show'
+      redirect to "user/{@plan.user_id}"
+    end
   end
+   redirect to "/plans"
 end
 
 #delete plans
