@@ -2,7 +2,7 @@
 <%= "Must enter username and password" if @user && params[:user_name] == "" || params[:password] == "" %>
 <%#=update the form so that the hash looks like what is in the UsersController %>
 <form method="POST" action="/signup">
-  <p>Username: <input type="text" name="username" placeholder="username"></p>
-  <p>Password: <input type="password" name="password" placeholder="password"></p>
+  <p>Username: <input type="text" name="user[username]" placeholder="username"></p>
+  <p>Password: <input type="password" name="user[password]" placeholder="password"></p>
   <input type='submit' value='submit'>
 </form>
