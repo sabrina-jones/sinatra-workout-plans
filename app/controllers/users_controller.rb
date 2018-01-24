@@ -16,6 +16,7 @@ post '/signup' do
   else
   #  @user = User.create(username: params[:username], password: params[:password])
     @user = User.create(params[:user])
+    raise params.inspect
     session[:user_id] = @user.id
     redirect '/plans'
   end
